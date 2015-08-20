@@ -115,6 +115,9 @@
     <Content Include="Dsl\UsersToPeopleBulk.boo">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Dsl\LoadLocationDimension.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rhino.Etl.Core\Rhino.Etl.Core.csproj">
