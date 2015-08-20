@@ -6,7 +6,7 @@ operation split_name_bulk:
         yield row
     
 process UsersToPeopleBulk:
-    DocDbInput "AzureDocumentDbEndpointUrl", "AzureDocumentDbEndpointKey", "mpm-files", "ImportedFiles", Command = "SELECT 'my name' as Name, 12 as id, 'test' as firstname, 'test' as lastname, 'abc@abc.com' as email FROM c"
+    DocDbInput "AzureDocumentDbEndpointUrl", "AzureDocumentDbEndpointKey", "mpm-files", "ImportedFiles", Command = "SELECT 'Mark Michaelis' as Name, 13 as id, 'abc@abc.com' as email FROM c"
     split_name_bulk()
     sqlBulkInsert "RhinoTest", "People", TableLock = true :
         map "id", int
