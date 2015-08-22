@@ -2,7 +2,7 @@ properties {
   $base_dir  = resolve-path .
   $lib_dir = "$base_dir\SharedLibs"
   $sln_file = "$base_dir\Rhino.Etl.sln" 
-  $version = "1.3.1.0"
+  $version = "1.3.1.2"
   $humanReadableversion = "1.3"
   $tools_dir = "$base_dir\Tools"
   $release_dir = "$base_dir\Release"
@@ -50,7 +50,7 @@ task Compile -depends Init {
 task Test -depends Compile {
   $old = pwd
   cd $tools_dir\XUnit\
-  &.\xunit.console.exe "$base_dir\Rhino.Etl.Tests\bin\Release\Rhino.Etl.Tests.dll"
+  &.\xunit.console.clr4.exe "$base_dir\Rhino.Etl.Tests\bin\Release\Rhino.Etl.Tests.dll"
   if ($lastExitCode -ne 0) {
         throw "Error: Failed to execute tests"
     }
@@ -76,8 +76,8 @@ task Nuget {
     -dependencies @( `
       @("Boo", "0.9.4"), `
       @("RhinoDSL", "1.0.0"), `
-      @("Common.Logging", "3.0.0"), `
-      @("Common.Logging.Core", "3.0.0"), `
+      @("Common.Logging", "3.2.0"), `
+      @("Common.Logging.Core", "3.2.0"), `
       @("FileHelpers", "2.0.0.0") `
      ) `
     -files @( `
@@ -123,7 +123,8 @@ task Nuget {
       @("Common.Logging.Core", "3.0.0"), `
       @("Common.Logging.Log4Net1210", "3.0.0"), `
       @("log4net", "1.2.10"), `
-      @("FileHelpers", "2.0.0.0") `
+      @("FileHelpers", "2.0.0.0"),
+      @("Dynamitey", "1.0.2") ` `
      ) `
     -files @( `
       @("$base_dir\Rhino.Etl.Cmd\bin\Release\Rhino.Etl.Core.dll","lib\net35"), `

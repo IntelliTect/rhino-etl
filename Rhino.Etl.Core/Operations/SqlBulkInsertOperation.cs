@@ -249,8 +249,10 @@ namespace Rhino.Etl.Core.Operations
                {
                     if (!string.IsNullOrEmpty(PreCommand))
                     {
+                         Debug("Executing PreCommand '{0}'", PreCommand);
                          using (IDbCommand preCmd = connection.CreateCommand())
                          {
+                              preCmd.CommandTimeout = Timeout;
                               preCmd.CommandText = PreCommand;
                               preCmd.Transaction = transaction;
                               preCmd.ExecuteNonQuery();
@@ -265,6 +267,7 @@ namespace Rhino.Etl.Core.Operations
                     {
                          using (IDbCommand postCmd = connection.CreateCommand())
                          {
+                              postCmd.CommandTimeout = Timeout;
                               postCmd.CommandText = PostCommand;
                               postCmd.Transaction = transaction;
                               postCmd.ExecuteNonQuery();
@@ -292,7 +295,7 @@ namespace Rhino.Etl.Core.Operations
           ///    </summary>
           protected virtual void onSqlRowsCopied(object sender, SqlRowsCopiedEventArgs e)
           {
-               Debug("{0} rows    copied to database", e.RowsCopied);
+               Debug("{0} rows copied to database", e.RowsCopied);
           }
 
           ///    <summary>

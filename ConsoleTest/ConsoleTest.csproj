@@ -118,6 +118,18 @@
     <Content Include="Dsl\LoadLocationDimension.boo">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Dsl\Aggregate.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dsl\LoadClientDimension.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dsl\LoadCreativeDimension.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dsl\LoadSpotAiredFact.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rhino.Etl.Core\Rhino.Etl.Core.csproj">

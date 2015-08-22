@@ -13,7 +13,7 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            using (EtlProcess process = CreateDslInstance("Dsl/LoadLocationDimension.boo"))
+            using (EtlProcess process = CreateDslInstance("Dsl/LoadSpotAiredFact.boo"))
                 process.Execute();
         }
 
